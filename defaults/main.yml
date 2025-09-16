@@ -44,7 +44,7 @@ pdns_install_repo: ""
 pdns_install_epel: True
 
 # The name of the PowerDNS Authoritative Server package
-pdns_package_name: "{{ default_pdns_package_name }}"
+pdns_package_name: "{{ pdns_default_package_name }}"
 
 # Install a specific version of the PowerDNS Authoritative Server package
 # NB: The usage of this variable makes only sense on RedHat-like systems,
@@ -55,7 +55,7 @@ pdns_package_version: ""
 pdns_install_debug_symbols_package: False
 
 # The name of the PowerDNS Authoritative Server debug symbols package
-pdns_debug_symbols_package_name: "{{ default_pdns_debug_symbols_package_name }}"
+pdns_debug_symbols_package_name: "{{ pdns_default_debug_symbols_package_name }}"
 
 # The user and group the PowerDNS Authoritative Server process will run as.
 # NOTE: at the moment, we don't create a user as we assume the package creates
@@ -77,7 +77,7 @@ pdns_service_enabled: "yes"
 pdns_disable_handlers: False
 
 # PowerDNS Authoritative Server configuration file and directory
-pdns_config_dir: "{{ default_pdns_config_dir }}"
+pdns_config_dir: "{{ pdns_default_config_dir }}"
 pdns_config_file: "pdns.conf"
 
 # Ddict containing all configuration options, except for backend
@@ -97,7 +97,7 @@ pdns_service_overrides: "{{ default_pdns_service_overrides }}"
 
 # Dictionary of packages that should be installed to enable the backends.
 # backendname: packagename
-pdns_backends_packages: "{{ default_pdns_backends_packages }}"
+pdns_backends_packages: "{{ pdns_default_backends_packages }}"
 
 # A dict with all the backends you'd like to configure.
 # This default starts just the bind-backend with an empty config file

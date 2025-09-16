@@ -37,13 +37,13 @@ By default, the PowerDNS Authoritative Server is installed from the software rep
   roles:
     - { role: PowerDNS.pdns,
         pdns_install_repo: "{{ pdns_auth_powerdns_repo_47 }}"
-        
+
 # Install the PowerDNS Authoritative Server from the '4.8.x' official repository
 - hosts: all
   roles:
     - { role: PowerDNS.pdns,
         pdns_install_repo: "{{ pdns_auth_powerdns_repo_48 }}"
-        
+
 # Install the PowerDNS Authoritative Server from the '4.9.x' official repository
 - hosts: all
   roles:
@@ -80,7 +80,7 @@ By default, install EPEL to satisfy some PowerDNS Authoritative Server dependenc
 To skip the installtion of EPEL set `pdns_install_epel` to `False`.
 
 ```yaml
-pdns_package_name: "{{ default_pdns_package_name }}"
+pdns_package_name: "{{ pdns_default_package_name }}"
 ```
 
 The name of the PowerDNS Authoritative Server package, `pdns` on RedHat-like systems and `pdns-server` on Debian-like systems.
@@ -98,7 +98,7 @@ pdns_install_debug_symbols_package: False
 Install the PowerDNS Authoritative Server debug symbols.
 
 ```yaml
-pdns_debug_symbols_package_name: "{{ default_pdns_debug_symbols_package_name }}"
+pdns_debug_symbols_package_name: "{{ pdns_default_debug_symbols_package_name }}"
 ```
 
 The name of the PowerDNS Authoritative Server debug package to be installed when `pdns_install_debug_symbols_package` is `True`,
@@ -133,7 +133,7 @@ pdns_disable_handlers: False
 Disable automated service restart on configuration changes.
 
 ```yaml
-pdns_config_dir: "{{ default_pdns_config_dir }}"
+pdns_config_dir: "{{ pdns_default_config_dir }}"
 pdns_config_file: "pdns.conf"
 ```
 
