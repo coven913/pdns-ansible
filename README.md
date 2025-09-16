@@ -121,7 +121,7 @@ Name of the PowerDNS service.
 
 ```yaml
 pdns_service_state: "started"
-pdns_service_enabled: "yes"
+pdns_service_enabled: true
 ```
 
 Allow to specify the desired state of the PowerDNS Authoritative Server service.
