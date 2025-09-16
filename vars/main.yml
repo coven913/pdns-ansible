@@ -35,9 +35,3 @@ pdns_auth_powerdns_repo_49:
   yum_repo_baseurl: "http://repo.powerdns.com/centos/$basearch/$releasever/auth-49"
   yum_debug_symbols_repo_baseurl: "http://repo.powerdns.com/centos/$basearch/$releasever/auth-49/debug"
   name: "powerdns-auth-49"
-
-default_pdns_service_overrides: >-
-  {{  { 'User'  : pdns_user
-      , 'Group' : pdns_group
-      }
-  }}
