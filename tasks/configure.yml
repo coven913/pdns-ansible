@@ -2,14 +2,13 @@
 - name: Set up systemd override
   when: ansible_service_mgr == "systemd"
   block:
-
   - name: Ensure the override directory exists (systemd)
     ansible.builtin.file:
       name: "/etc/systemd/system/{{ pdns_service_name }}.service.d"
       state: directory
       owner: root
       group: root
-      mode: 0755
+      mode: "0755"
 
   - name: Override the PowerDNS Authoritative Server unit (systemd)
     ansible.builtin.template:
@@ -17,7 +16,7 @@
       dest: "/etc/systemd/system/{{ pdns_service_name }}.service.d/override.conf"
       owner: root
       group: root
-      mode: 0644
+      mode: "0644"
     notify:
       - reload systemd
       - restart pdns
@@ -29,7 +28,7 @@
     state: directory
     owner: "{{ pdns_file_owner }}"
     group: "{{ pdns_file_group }}"
-    mode: 0750
+    mode: "0750"
 
 - name: Generate the PowerDNS configuration
   ansible.builtin.template:
@@ -37,7 +36,7 @@
     dest: "{{ pdns_config_dir }}/{{ pdns_config_file }}"
     owner: "{{ pdns_file_owner }}"
     group: "{{ pdns_file_group }}"
-    mode: 0640
+    mode: "0640"
   notify: restart pdns
 
 - name: Ensure that the PowerDNS 'include-dir' directory exists
@@ -46,5 +45,5 @@
     state: directory
     owner: "{{ pdns_file_owner }}"
     group: "{{ pdns_file_group }}"
-    mode: 0750
+    mode: "0750"
   when: "pdns_config['include-dir'] is defined"
