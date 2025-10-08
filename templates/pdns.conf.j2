@@ -24,6 +24,7 @@ launch=
 {% for backend in pdns_backends | sort() -%}
 launch+={{ backend }}
 {% set backend_string = backend | replace(':', '-') %}
+{% if pdns_backends[backend] is mapping %}
 {% for backend_item, value in pdns_backends[backend].items() | sort() -%}
 {% if value is sameas True %}
 {{ backend_string }}-{{ backend_item }}=yes
@@ -35,6 +36,7 @@ launch+={{ backend }}
 {{ backend_string }}-{{ backend_item }}={{ value | string }}
 {% endif %}
 {% endfor %}
+{% endif %}
 
 {% endfor -%}
 
